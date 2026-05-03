@@ -1,26 +1,44 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-
-
+import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!email || !password) {
       setError("Please fill in all fields.")
       return
     }
+    setLoading(true)
     setError("")
-    alert(`Logged in as ${email}`)
+
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    })
+
+    const text = await res.text()
+    const data = text ? JSON.parse(text) : {}
+
+    if (!res.ok) {
+      setError(data.error || "Login failed")
+      setLoading(false)
+      return
+    }
+
+    window.dispatchEvent(new Event("loginStateChanged"))
+    router.push("/")
   }
-  
+
   return (
     <main>
-      
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
           <h1 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back 👋</h1>
@@ -52,14 +70,17 @@ export default function LoginPage() {
 
           <button
             onClick={handleLogin}
-            className="w-full bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition"
+            disabled={loading}
+            className="w-full bg-blue-700 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition disabled:opacity-50"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
           <p className="text-sm text-center text-gray-500 mt-4">
             Don't have an account?{" "}
-            <Link href="/signup" className="text-blue-600 hover:underline font-medium">Sign Up</Link>
+            <Link href="/signup" className="text-blue-600 hover:underline font-medium">
+              Sign Up
+            </Link>
           </p>
         </div>
       </div>
