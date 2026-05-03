@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import Navbar from "@/components/Navbar";
+
 
 
 export default function LoginPage() {
@@ -17,7 +17,7 @@ export default function LoginPage() {
     setError("")
     alert(`Logged in as ${email}`)
   }
-  <Navbar/>
+  
   return (
     <main>
       
