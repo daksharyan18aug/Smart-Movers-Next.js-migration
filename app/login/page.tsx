@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -16,10 +17,10 @@ export default function LoginPage() {
     setError("")
     alert(`Logged in as ${email}`)
   }
-
+  <Navbar/>
   return (
     <main>
-      <Navbar />
+      
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
           <h1 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back 👋</h1>
