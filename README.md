@@ -37,6 +37,8 @@ https://github.com/daksharyan18aug/Smart-Movers-Next.js-migration
 ---
 
 ## 🗂️ Project Structure
+
+```
 smart-movers-next/
 ├── app/
 │   ├── api/
@@ -45,22 +47,41 @@ smart-movers-next/
 │   │   │   ├── signup/route.ts
 │   │   │   ├── logout/route.ts
 │   │   │   └── me/route.ts
-│   │   └── orders/route.ts
-│   ├── login/
-│   ├── signup/
-│   ├── dashboard/
-│   ├── packages/
-│   ├── companies/
-│   └── book/
+│   │   ├── orders/route.ts
+│   │   ├── bookings/route.ts
+│   │   └── companies/route.ts
+│   ├── login/page.tsx
+│   ├── signup/page.tsx
+│   ├── dashboard/page.tsx
+│   ├── packages/page.tsx
+│   ├── companies/page.tsx
+│   ├── book/page.tsx
+│   ├── contact/page.tsx
+│   ├── confirm-booking/page.tsx
+│   ├── details/page.tsx
+│   ├── layout.tsx
+│   └── page.tsx
 ├── components/
 │   ├── Navbar.tsx
+│   ├── Footer.tsx
 │   ├── Button.tsx
 │   ├── BookingForm.tsx
-│   └── ...
+│   ├── BookingTable.tsx
+│   ├── Card.tsx
+│   ├── CompanyCard.tsx
+│   ├── PackageCard.tsx
+│   ├── SectionHeading.tsx
+│   └── Skeleton.tsx
 ├── lib/
 │   └── db.ts
-└── .env.local
----
+├── types/
+│   └── index.ts
+├── public/
+├── .env.local
+├── next.config.ts
+├── tailwind.config.ts
+└── package.json
+```
 
 ## ⚙️ Getting Started
 
