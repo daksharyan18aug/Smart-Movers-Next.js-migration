@@ -2,8 +2,6 @@
 
 A fullstack moving services platform built with Next.js, TypeScript, Tailwind CSS, and MySQL.
 
-## 🌐 Live Demo
-https://smart-movers-nextjs-migration-production.up.railway.app/
 ## 📁 Repositry
 https://github.com/daksharyan18aug/Smart-Movers-Next.js-migration
 
